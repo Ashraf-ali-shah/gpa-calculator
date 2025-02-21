@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wraper">
+        <div style="margin-bottom: 20px;">
+        <h1>GPA CALCULATOR</h1>
+        <p class="smalltxt">for GDCs</p>
+        </div>
+        <form action="/submit-form" method="post" class="main-form">
+            <div class="samester-wraper">
+                <div class="header">
+                    <h2>Samester 1</h2>
+                    <div ><img class="cross" src="x 2.png.png" alt=""></div>
+                </div>
+                <div class="heading">
+                    <div class="namei"><h3>Course Name</h3></div>
+                    <div class="gradei"><h3>Grades</h3></div>
+                    <div class="crediti"><h3>Credit</h3></div>
+                </div>
+                <div class="samester">
+                    <div class="course">
+                        <input type="text" placeholder="Eg Calculus" class="name">
+                        <input type="number" placeholder="Eg 89" class="grade">
+                        <input type="number" placeholder="Eg 3" class="credit">
+                        <div><img class="remove" src="Group 8.png" alt=""></div>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Eg English" class="name">
+                        <input type="number" placeholder="Eg 81" class="grade">
+                        <input type="number" placeholder="Eg 3" class="credit">
+                        <div><img class="remove" src="Group 8.png" alt=""></div>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Eg Data structure" class="name">
+                        <input type="number" placeholder="Eg 93" class="grade">
+                        <input type="number" placeholder="Eg 4" class="credit">
+                        <div><img class="remove" src="Group 8.png" alt=""></div>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Eg physics" class="name">
+                        <input type="number" placeholder="Eg 84" class="grade">
+                        <input type="number" placeholder="Eg 3" class="credit">
+                        <div><img class="remove" src="Group 8.png" alt=""></div>
+                    </div>
+                    <div class="course">
+                        <input type="text" placeholder="Eg parograming" class="name">
+                        <input type="number" placeholder="Eg 98" class="grade">
+                        <input type="number" placeholder="Eg 4" class="credit">
+                        <div><img class="remove" src="Group 8.png" alt=""></div>
+                    </div>
+                    <div class="sresult-wraper">
+                        <div class="button-wraper">
+                            <a href="javascript:void(0)"  class="adbutton"><img class="adbutton" src="plus-circle 1.png" alt="">Add Course</a>
+                            <a href="javascript:void(0)" class="clbutton"><img class="clbutton" src="Group 17.png" alt="">Clear All</a>
+                        </div>
+                        <div class="sresult hide">Samester gpa 4.00</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="error-wraper"><p class="error"></p></div>
+        <div class="control-wraper">
+            <button type="button" class="subbtn">Calculate</button>
+            <button type="button" class="adsbtn">Add Samester</button>
+        </div>
+        <div class="final-wraper hide">
+            <div class="cgpa-wraper">
+                <p class="just">Overall GPA</p>
+                <p class="gpa">0.00</p>
+            </div>
+            <div class="finalbtn-wraper" style="cursor: pointer;">
+                <button type="button" class="edit">Edit</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
