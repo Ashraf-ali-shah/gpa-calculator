@@ -10,6 +10,9 @@ body{
     padding: 0;
     
 }
+.main-form{
+    overflow: hidden;
+}
 .main-wraper{
     /* background: rgba(31, 31, 31, 0.9); */
     backdrop-filter: blur(10px);
