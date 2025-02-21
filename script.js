@@ -73,6 +73,9 @@ class manager{
 let topwraper=document.querySelector('.main-form')
 topwraper.addEventListener('click',function(event){
     if (event.target.classList.contains('cross')){
+         if (topwraper.children.length==1){
+            errorfield.innerText=""
+        }
         let samester=event.target.closest('.samester-wraper')
         samester.classList.add('remove-animation')
         setTimeout(() => {
@@ -214,14 +217,16 @@ function adding(){
         form.appendChild(samesterwrpaer)
     }
 }
+var errorfield=document.querySelector('.error')
 let addsamester=adding()
 let addsbuttan=document.querySelector('.adsbtn')
 addsbuttan.addEventListener('click',function(event){
     event.preventDefault()
     if (count>=8){
-        let errorfield=document.querySelector('.error')
         errorfield.innerText="number of samesters should not exceed eight"
-        return
+        setTimeout(() => {
+            errorfield.innerText=""
+        }, 1500);
     }
     addsamester()
 })
@@ -245,10 +250,12 @@ function showhide(){
 let calbtn=document.querySelector('.subbtn')
 calbtn.addEventListener('click',function(event){
     event.preventDefault()
+    if (topwraper.children.length==0){
+        return
+    }
     let subjects=document.querySelectorAll('.name')
     let marks=document.querySelectorAll('.grade')
     let credit=document.querySelectorAll('.credit')
-        let errorfield=document.querySelector('.error')
         errorfield.innerText=''
         let check=false
         subjects.forEach(function(sub){
