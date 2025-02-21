@@ -183,7 +183,7 @@ function adding(){
             crinput.classList.add('credit')
             let bdiv=document.createElement('div')
             let img=document.createElement('img')
-            img.src='image/Group 8.png'
+            img.src='Group 8.png'
             img.classList.add('remove')
             bdiv.appendChild(img)
             coursediv.append(cinput,ginput,crinput,bdiv)
