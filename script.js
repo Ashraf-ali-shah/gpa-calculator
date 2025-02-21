@@ -218,7 +218,7 @@ let addsamester=adding()
 let addsbuttan=document.querySelector('.adsbtn')
 addsbuttan.addEventListener('click',function(event){
     event.preventDefault()
-    if (count>8){
+    if (count>=8){
         let errorfield=document.querySelector('.error')
         errorfield.innerText="number of samesters should not exceed eight"
         return
@@ -226,18 +226,16 @@ addsbuttan.addEventListener('click',function(event){
     addsamester()
 })
 function showhide(){
-    let remove=document.querySelectorAll('.remove')
+        let remove=document.querySelectorAll('.remove')
     remove.forEach(function(rem){
         rem.classList.toggle('hide')
     })
     let wraper=document.querySelectorAll('.button-wraper')
-    wraper.forEach(function(wrap){
-        wrap.classList.toggle('hide')
-    })
     let sresult=document.querySelectorAll('.sresult')
-    sresult.forEach(function(res){
-        res.classList.toggle('hide')
-    })
+    for (let i=0;i<wraper.length;i++){
+        wraper[i].classList.toggle('hide')
+        sresult[i].classList.toggle('hide')
+    }
     let controler=document.querySelector('.control-wraper')
     let finalcontrol=document.querySelector('.final-wraper')
     controler.classList.toggle('hide')
@@ -250,55 +248,50 @@ calbtn.addEventListener('click',function(event){
     let subjects=document.querySelectorAll('.name')
     let marks=document.querySelectorAll('.grade')
     let credit=document.querySelectorAll('.credit')
-    let check=true
-    while(check){
         let errorfield=document.querySelector('.error')
+        errorfield.innerText=''
+        let check=false
         subjects.forEach(function(sub){
-            if (sub.value==""){
+            if (sub.value.trim()==""){
                 errorfield.innerText='Please fill all the courses name'
-                check=false
+                check=true
+                return
             }
         })
-        if (!check){return}
+        if (check){return}
         marks.forEach(function(mark){
-            if (mark.value==''){
-                errorfield.innerText='please enter all required grades'
-                check=false
+            if (mark.value && (mark.value>100 || mark.value<0)){
+                errorfield.innerText='Grades must not be greater than 100 or negative'
+                check=true
+                return
             }
-            else if (mark.value>100){
-                errorfield.innerText='Grades should not be greater than 100'
-                check=false
+            else if (mark.value==''){
+                errorfield.innerText='please enter all required grades'
+                check=true
+                return
             }
         })
-        if (!check){return}
+        if (check){return}
         credit.forEach(function(cred){
+            if (cred.value && (cred.value<=0 || cred.value>6)){
+                errorfield.innerText='please make sure all credit hour must be in range 1 to 6'
+                check=true
+                return 
+            }
             if (cred.value==''){
                 errorfield.innerText='please enter all required credit hour'
-                check=false
+                check=true
+                return 
             }
-            else if (cred.value<=0 && cred.value>4){
-                errorfield.innerText='please make sure all credit hour must be <4 and >0'
-                check=false
-            }
+
         })
-        if (check){
-            errorfield.innerText=''
-            break
-        }
-        else {
-            check=true
-        }
+        if (check){return}
+        errorfield.innerText=''
+    for (let i=0;i<subjects.length;i++){
+        subjects[i].disabled=true
+        marks[i].disabled=true
+        credit[i].disabled=true
     }
-    // loop end
-    subjects.forEach(function(sub){
-        sub.disabled=true
-    })
-    marks.forEach(function(mark){
-        mark.disabled=true
-    })
-    credit.forEach(function(cred){
-        cred.disabled=true
-    })
     let samesters=document.querySelectorAll('.samester')
     let tracker=0
     let main=new manager()
@@ -322,15 +315,12 @@ edit.addEventListener('click',function(){
     let subjects=document.querySelectorAll('.name')
     let marks=document.querySelectorAll('.grade')
     let credit=document.querySelectorAll('.credit')
-    subjects.forEach(function(sub){
-        sub.disabled=false
-    })
-    marks.forEach(function(mark){
-        mark.disabled=false
-    })
-    credit.forEach(function(cred){
-        cred.disabled=false
-    })
+    for (let i=0;i<subjects.length;i++){
+        subjects[i].disabled=false
+        marks[i].disabled=false
+        credit[i].disabled=false
+    }
+
 })
 
 
