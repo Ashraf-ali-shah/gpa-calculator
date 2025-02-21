@@ -196,11 +196,11 @@ function adding(){
         let adbtn=document.createElement('a')
         adbtn.classList.add('adbutton')
         adbtn.href='javascript:void(0)'
-        adbtn.innerHTML='<img class="adbutton" src="image/plus-circle 1.png" alt="">Add Course'
+        adbtn.innerHTML='<img class="adbutton" src="plus-circle 1.png" alt="">Add Course'
         let clbtn=document.createElement('a')
         clbtn.classList.add('clbutton')
         clbtn.href='javascript:void(0)'
-        clbtn.innerHTML='<img class="clbutton" src="image/Group 17.png" alt="">Clear All'
+        clbtn.innerHTML='<img class="clbutton" src="Group 17.png" alt="">Clear All'
         btnwraper.append(adbtn,clbtn)
         let result=document.createElement('div')
         result.innerText="Samester gpa 0.00"
