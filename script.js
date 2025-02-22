@@ -227,6 +227,7 @@ addsbuttan.addEventListener('click',function(event){
         setTimeout(() => {
             errorfield.innerText=""
         }, 1500);
+        return
     }
     addsamester()
 })
