@@ -257,44 +257,22 @@ calbtn.addEventListener('click',function(event){
     let subjects=document.querySelectorAll('.name')
     let marks=document.querySelectorAll('.grade')
     let credit=document.querySelectorAll('.credit')
-        errorfield.innerText=''
-        let check=false
-        subjects.forEach(function(sub){
-            if (sub.value.trim()==""){
-                errorfield.innerText='Please fill all the courses name'
-                check=true
+    errorfield.innerText=''
+        for (let i=0;i<subjects.length;i++){
+            if (subjects[i].value.trim()=="" || marks[i].value=='' || credit[i].value==''){
+                errorfield.innerText="please fill the input fields"
                 return
             }
-        })
-        if (check){return}
-        marks.forEach(function(mark){
-            if (mark.value && (mark.value>100 || mark.value<0)){
-                errorfield.innerText='Grades must not be greater than 100 or negative'
-                check=true
-                return
-            }
-            else if (mark.value==''){
-                errorfield.innerText='please enter all required grades'
-                check=true
-                return
-            }
-        })
-        if (check){return}
-        credit.forEach(function(cred){
-            if (cred.value && (cred.value<=0 || cred.value>6)){
-                errorfield.innerText='please make sure all credit hour must be in range 1 to 6'
-                check=true
+            if (marks[i].value>100 || marks[i].value<0){
+                errorfield.innerText='marks range is 0 to 100'
                 return 
             }
-            if (cred.value==''){
-                errorfield.innerText='please enter all required credit hour'
-                check=true
-                return 
+            if (credit[i].value<=0 || credit[i].value>6){
+                errorfield.innerText='credit hour range is 1 to 6'
+                return
             }
-
-        })
-        if (check){return}
-        errorfield.innerText=''
+        }
+    errorfield.innerText=''
     for (let i=0;i<subjects.length;i++){
         subjects[i].disabled=true
         marks[i].disabled=true
